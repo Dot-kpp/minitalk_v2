@@ -1,5 +1,6 @@
 #include "../include/minitalk.h"
 
+t_stack g_stack;
 void		print_pid(void)
 {
 	char	*tmp;
@@ -10,20 +11,19 @@ void		print_pid(void)
 	write(1, "\n", 1);
 }
 
-void server_handler (int signum, siginfo_t *s_info, void *content)
+static void sig_handler (int signum, siginfo_t *s_info, void *content)
 {
-    (void)content;
-    (void)s_info;
-    t_stack t_stack;
-    t_stack.c |= (signum == SIGUSR1);
-    if (t_stack.i++ == 7)
+    (void) content;
+    (void)  s_info;
+    g_stack.c |= (signum == SIGUSR1);
+    if (g_stack.i++ == 7)
     {
-        t_stack.i = 0;
-        write(1, &t_stack.c, 1);
-        t_stack.c = 0;
+        g_stack.i = 0;
+        write(1, &g_stack.c, 1);
+        g_stack.c = 0;
     }
     else
-        t_stack.c = t_stack.c << 1;
+        g_stack.c = g_stack.c << 1;
 
 }
 
@@ -36,9 +36,10 @@ int main(int argc, char **argv)
         server_input_error();
     }
     print_pid();
-    sa.sa_sigaction = &server_handler;
+    ft_memset(&sa, 0, sizeof(sa));
+    sa.sa_sigaction = &sig_handler;
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
 	while (1)
-		usleep(1);
+		usleep(300);
 }

@@ -6,7 +6,7 @@
 /*   By: jpilotte <jpilotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 21:38:45 by jpilotte          #+#    #+#             */
-/*   Updated: 2022/04/13 21:28:12 by jpilotte         ###   ########.fr       */
+/*   Updated: 2022/10/15 14:07:40 by jpilotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
-
 //GNL
 char	*get_next_line(int fd);
 
@@ -49,8 +48,6 @@ void	ft_putnbr_base_unsigned_int(unsigned int n, char *base, int *len);
 void	ft_putnbr_base_unsigned_long(unsigned long n, char *base, int *len);
 void	ft_putnbr_u(unsigned int n, int *base_len);
 void	ft_putstr(char *s, int *base_len);
-
-
 size_t	ft_strlen(const char *str);
 int		ft_isprint(int c);
 void	*ft_memset(void *str, int c, size_t n);

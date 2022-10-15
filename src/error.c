@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpilotte <marvin@42quebec.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/15 13:50:26 by jpilotte          #+#    #+#             */
+/*   Updated: 2022/10/15 13:59:18 by jpilotte         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/minitalk.h"
 
 void	pid_error(void)
@@ -8,7 +20,7 @@ void	pid_error(void)
 
 void	client_input_error(void)
 {
-	write(1, "Please enter a valid input: ./client [server-pid] [message]\n", 59);
+	write(1, "Enter a valid input: ./client [server-pid] [message]\n", 54);
 	exit(1);
 }
 
